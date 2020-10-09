@@ -4,47 +4,48 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#FFF',
         alignItems: 'center',
         justifyContent: 'flex-start'
-    },
-    filter: {
+      },
+      filter: {
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'space-around',
         height: 70,
         alignItems: 'center'
-    },
-    filterTextActived: {
+      },
+      filterTextActived: {
         fontWeight: 'bold',
         fontSize: 18,
-        color: '#F4A261'
-    },
-    filterTextInative: {
+        color: '#f4a261'
+      },
+      filterTextInative: {
+        color: '#20295f',
         fontWeight: 'bold',
         fontSize: 18,
-        color: '#2A9D8F',
         opacity: 0.5
-    },
-    content: {
+      },
+      content: {
         width: '100%',
         marginTop: 30
-    },
-    title: {
+      },
+      title: {
         width: '100%',
+        borderBottomWidth: 1,
         borderColor: '#2A9D8F',
         alignItems: 'center'
-    },
-    titleText: {
+      },
+      titleText: {
         color: '#2A9D8F',
         fontSize: 18,
         position: 'relative',
         top: 11,
-        backgroundColor: '#fff',
+        backgroundColor: '#FFF',
         paddingHorizontal: 10
-    }
+      }
 
-
+    
 });
 
 export default styles;

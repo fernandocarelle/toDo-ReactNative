@@ -8,45 +8,45 @@ const styles = StyleSheet.create({
         padding: 10,
         width: '90%',
         marginVertical: 10,
-        height: 80,
+        height: 90,
         shadowColor: '#000',
         shadowOffset: {
-            width: 0,
-            height: 2,
+          width: 0,
+          height: 1,
         },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-        borderRadius: 10
-    },
-    cardLeft: {
+        shadowOpacity: 0.2,
+        shadowRadius: 2,
+        elevation: 2,
+        borderRadius: 2,
+      },
+      cardLeft: {
         flexDirection: 'row',
-        textAlign: 'center'
-    },
-    typeActive: {
+        alignItems: 'center'
+      },
+      typeActive: {
         width: 50,
         height: 50
-    },
-    cardTitle: {
+      },
+      cardTitle: {
         marginLeft: 10,
-        fontWeight: 'bold',
+        fontWeight: 'bold', 
         fontSize: 16
-    },
-    cardRight: {
+      },
+      cardRight: {
         alignItems: 'flex-end',
         justifyContent: 'space-between'
-    },
-    cardDate: {
-        color: '#F4A261',
+      },
+      cardDate: {
+        color: '#f4a261',
         fontWeight: 'bold',
         fontSize: 16
-    },
-    cardTime: {
+      },
+      cardTime: {
         color: '#707070'
-    },
-    cardDone: {
+      },
+      cardDone: {
         opacity: 0.5
-    }
+      }
 
 });
 

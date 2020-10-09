@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { View, Text, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 
 import styles from './styles';
 
@@ -7,9 +7,24 @@ import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import TaskCard from '../../components/TaskCard/index';
 
+import api from '../../services/api';
+
 export default function Home() {
-    const [filter, setFilter] = useState('today');
-    const [done, setDone] = useState();
+    const [filter, setFilter] = useState('all');
+    const [tasks, setTasks] = useState([]);
+    const [load, setLoad] = useState(false);
+
+    async function loadTasks(){
+        setLoad(true);
+        await api.get(`/task/filter/${filter}/11:11:11:11:11:11`).then(response => {
+            setTasks(response.data)
+            setLoad(false);
+        })
+    }
+
+    useEffect(() => {
+        loadTasks();
+    },[filter])
 
     return(
         <View style={styles.container} >
@@ -39,9 +54,24 @@ export default function Home() {
                 <Text style={styles.titleText}>TAREFAS</Text>
             </View>
 
-            <ScrollView style={styles.content} contentContainerStyle={{alignItems: 'center'}}>
-                <TaskCard done={false} />
-            </ScrollView>
+            <ScrollView style={styles.content} contentContainerStyle={{alignItems: 'center'}}>          
+        {
+          load 
+          ? 
+          <ActivityIndicator color='#f4a261' size={50}/>
+          :
+          tasks.map(t => 
+          (
+            <TaskCard 
+              done={t.done} 
+              title={t.title} 
+              when={t.when} 
+              type={t.type}  
+              onPress={() => Show(t._id)}           
+            />   
+          ))       
+        }
+    </ScrollView>
             <Footer icon={'add'} />
         </View>
         
