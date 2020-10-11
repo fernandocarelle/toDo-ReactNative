@@ -6,7 +6,7 @@ import add from '../../assets/add.png';
 import save from '../../assets/save.png';
 
 
-export default function Header({ icon }){
+export default function Footer({ icon }){
     return(
         <View style={styles.footer}>
             <TouchableOpacity style={styles.button}>

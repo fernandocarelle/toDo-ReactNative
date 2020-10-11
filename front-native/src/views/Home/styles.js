@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
       },
       content: {
         width: '100%',
-        marginTop: 30
+        marginTop: 30,
+        marginBottom: 80
       },
       title: {
         width: '100%',
