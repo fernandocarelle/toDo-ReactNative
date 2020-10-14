@@ -6,6 +6,8 @@ import Footer from '../../components/Footer/index';
 import styles from './styles';
 import typeIcons from '../../utils/typeIcons';
 
+import DateTimeInput from '../../components/DateTimeInput/index';
+
 
 export default function Task(){
     const[done, setDone] = useState(false);
@@ -32,6 +34,9 @@ export default function Task(){
                 <Text style={styles.label}>Detalhes</Text>
                 <TextInput style={styles.inputArea} maxLength={200} multiline={true} placeholder='Detalhes da atividade que eu tenho que lembrar...' />
                 
+                <DateTimeInput type={'date'} />
+                <DateTimeInput type={'hour'} />
+
                 <View style={styles.inline} >
                     <View style={styles.inputInline}>
                         <Switch onValueChange={() => setDone(!done)} value={done} thumbColor={done ? '#00761B' : '#f4a261'} />
