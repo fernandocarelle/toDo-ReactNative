@@ -9,7 +9,7 @@ import TaskCard from '../../components/TaskCard/index';
 
 import api from '../../services/api';
 
-export default function Home() {
+export default function Home({ navigation }) {
     const [filter, setFilter] = useState('all');
     const [tasks, setTasks] = useState([]);
     const [load, setLoad] = useState(false);
@@ -29,6 +29,10 @@ export default function Home() {
             setLateCount(response.data.length)
 
         })
+    }
+
+    function New(){
+        navigation.navigate('Task')
     }
 
     function Notification(){
@@ -86,7 +90,7 @@ export default function Home() {
           ))       
         }
     </ScrollView>
-            <Footer icon={'add'} />
+            <Footer icon={'add'} onPress={New} />
         </View>
         
     )

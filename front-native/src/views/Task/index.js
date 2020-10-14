@@ -9,12 +9,12 @@ import typeIcons from '../../utils/typeIcons';
 import DateTimeInput from '../../components/DateTimeInput/index';
 
 
-export default function Task(){
+export default function Task({ navigation }){
     const[done, setDone] = useState(false);
 
     return(
         <KeyboardAvoidingView behavior='padding' style={styles.container}>
-            <Header showBack={true} />
+            <Header showBack={true} navigation={navigation} />
             <ScrollView style={{width: '100%' }}>
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{marginVertical: 10}} >
                     {
