@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { TouchableOpacity, Image, TextInput, DatePickerAndroid, TimePickerAndroid } from 'react-native';
 import styles from './styles';
 
-import iconCalendar from '../../assets/Icon awesome-calendar-alt.png';
-import iconClock from '../../assets/Icon awesome-clock.png';
+import iconCalendar from '../../assets/calendar.png';
+import iconClock from '../../assets/clock.png';
 
-export default function DateTimeInputAndroid({ type }){
+import { format } from 'date-fns';
+
+export default function DateTimeInputAndroid({ type, save }){
     const [dateTime, setDateTime] = useState();
 
     async function selectDataOrHour(){
@@ -16,6 +18,7 @@ export default function DateTimeInputAndroid({ type }){
 
             if(action == DatePickerAndroid.dateSetAction)
             setDateTime(`${day} - ${month} - ${year}`);
+            save(format(new Date(year, month, day), 'yyyy-MM-dd'));
         }else{
             const { action, hour, minute } = await TimePickerAndroid.open({
                 is24Hour: true
@@ -23,7 +26,7 @@ export default function DateTimeInputAndroid({ type }){
 
             if(action != TimePickerAndroid.dismissedAction)
             setDateTime(`${hour}:${minute}`);
-
+            save(format(new Date(2020, 12, 1, hour, minute, 0, 0), 'HH:mm:ss'));
         }
     }
 
